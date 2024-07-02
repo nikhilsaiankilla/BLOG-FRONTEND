@@ -1,9 +1,12 @@
 $lightGreen: #b9e7e7;
+// $lightGreen: #e30022;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .app {
     display: flex;
     justify-content: center;
-
+    font-family: "Poppins", sans-serif;
 
     .container {
         width: 1024px;
@@ -74,8 +77,12 @@ $lightGreen: #b9e7e7;
                 justify-content: space-between;
 
                 .logo {
-                    img {
-                        width: 120px;
+                    a {
+                        text-decoration: none;
+                        font-weight: bolder;
+                        font-size: 1.6rem;
+
+                        color: $lightGreen;
                     }
                 }
 
@@ -91,6 +98,16 @@ $lightGreen: #b9e7e7;
 
                     span {
                         cursor: pointer;
+                    }
+                }
+
+                .user-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .username {
+                        text-transform: uppercase;
                     }
 
                     .write {
@@ -154,6 +171,118 @@ $lightGreen: #b9e7e7;
             }
         }
 
+        //PROFILE
+
+        .profile {
+            width: 100%;
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            .profile-div {
+                width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+
+                gap: 3rem;
+                margin-top: 2rem;
+
+                .img {
+                    flex: 1;
+                    width: 250px;
+                    height: 250px;
+
+                    border-radius: 50%;
+
+                    img {
+                        border-radius: 50%;
+                        border: 5px solid $lightGreen;
+
+                        width: 250px;
+                        height: 250px;
+                        object-fit: cover;
+                    }
+                }
+
+                .info {
+                    flex: 2;
+
+                    list-style: none;
+
+                    li {
+                        font-size: 1.6rem;
+                        margin: 0.5rem 0;
+
+                        font-weight: 700;
+
+                        color: $lightGreen;
+
+                        span {
+                            font-size: 1.3rem;
+                            font-weight: 400;
+                            margin-left: 20px;
+
+                            color: #333;
+                        }
+                    }
+                }
+            }
+
+            .blogs-div {
+                width: 100%;
+
+                margin-top: 4rem;
+
+                border-top: 4px solid $lightGreen;
+
+                .blogs {
+                    width: 100%;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    flex-wrap: wrap;
+
+                    gap: 20px;
+
+                    .blog {
+                        width: 300px;
+                        height: 400px;
+
+                        border-radius: 30px;
+
+                        .blog-img {
+                            width: 100%;
+                            height: 70%;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .blog-info {
+                            width: 100%;
+                            height: 28%;
+
+                            h1 {
+                                font-size: 1.3rem;
+                            }
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         //HOME
 
         .home {
@@ -162,6 +291,11 @@ $lightGreen: #b9e7e7;
                 display: flex;
                 flex-direction: column;
                 gap: 150px;
+
+                h3 {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
 
                 .post {
                     display: flex;
@@ -188,7 +322,7 @@ $lightGreen: #b9e7e7;
 
                         img {
                             width: 100%;
-                            max-height: 400px;
+                            height: 400px;
                             object-fit: cover;
                         }
                     }
@@ -200,11 +334,11 @@ $lightGreen: #b9e7e7;
                         justify-content: space-between;
 
                         h1 {
-                            font-size: 48px;
+                            font-size: 40px;
                         }
 
                         p {
-                            font-size: 18px;
+                            font-size: 16px;
                         }
 
                         button {
@@ -241,7 +375,7 @@ $lightGreen: #b9e7e7;
 
                 img {
                     width: 100%;
-                    height: 300px;
+                    height: 350px;
                     object-fit: cover;
                 }
 
@@ -263,8 +397,8 @@ $lightGreen: #b9e7e7;
                     }
 
                     img {
-                        width: 60px;
-                        height: 60px;
+                        width: 50px;
+                        height: 50px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
@@ -292,9 +426,16 @@ $lightGreen: #b9e7e7;
                     text-transform: capitalize;
                 }
 
-                p {
-                    text-align: justify;
-                    line-height: 30px;
+                .desc {
+                    p {
+                        text-align: justify;
+                        line-height: 30px;
+                    }
+
+                    a {
+                        color: #b9e7e7;
+                        background-color: #49eeee;
+                    }
                 }
             }
 
@@ -305,7 +446,7 @@ $lightGreen: #b9e7e7;
                 gap: 25px;
 
                 h1 {
-                    font-size: 20px;
+                    font-size: 16px;
                     color: #555;
                 }
 
@@ -356,6 +497,8 @@ $lightGreen: #b9e7e7;
                 flex-direction: column;
                 gap: 20px;
 
+
+
                 input {
                     padding: 10px;
                     border: 1px solid lightgray;
@@ -388,6 +531,19 @@ $lightGreen: #b9e7e7;
                     justify-content: space-between;
                     font-size: 12px;
                     color: #555;
+
+                    .image-container {
+                        width: 270px;
+                        height: 150px;
+
+                        margin-bottom: 10px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
 
                     h1 {
                         font-size: 20px;

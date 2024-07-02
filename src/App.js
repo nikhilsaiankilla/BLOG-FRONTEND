@@ -1,9 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Write from "./pages/Write";
@@ -13,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss";
 import Test from "./pages/Test";
+import User from "./pages/User";
 
 const Layout = () => {
   return (
@@ -44,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <Write />,
+      },
+      {
+        path: "/profile",
+        element: <User />,
       },
     ],
   },

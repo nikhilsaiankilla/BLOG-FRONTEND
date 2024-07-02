@@ -14,8 +14,9 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(`http://localhost:8000/v1/api/posts${category}`);
-                setPosts(res.data);
+                setPosts(res?.data);
             } catch (err) {
+                setPosts([])
                 console.log(err);
             }
         };
@@ -31,23 +32,34 @@ const Home = () => {
         navigate(dest);
     }
 
+
+    const truncateText = (text, length) => {
+        if (text.length > length) {
+            return text.substring(0, length) + "...";
+        }
+        return text;
+    };
+
     return (
         <div className="home">
             <div className="posts">
-                {posts.map((post) => (
-                    <div className="post" key={post.id}>
-                        <div className="img">
-                            <img src={post.image} alt="" />
+                {
+                    posts?.length > 0 ? posts.map((post) => (
+                        <div className="post" key={post.id}>
+                            <div className="img">
+                                <img src={post?.image} alt="" />
+                            </div>
+                            <div className="content">
+                                <Link className="link" to={`/post/${post.id}`}>
+                                    <h1>{post.title}</h1>
+                                </Link>
+                                <p>{truncateText(getText(post?.desc), 200)}</p>
+                                <button onClick={() => handleNavigation(`/post/${post.id}`)}>Read More</button>
+                            </div>
                         </div>
-                        <div className="content">
-                            <Link className="link" to={`/post/${post.id}`}>
-                                <h1>{post.title}</h1>
-                            </Link>
-                            <p>{getText(post.desc)}</p>
-                            <button onClick={() => handleNavigation(`/post/${post.id}`)}>Read More</button>
-                        </div>
-                    </div>
-                ))}
+                    ))
+                        :
+                        <h3>no posts available</h3>}
             </div>
         </div>
     );
