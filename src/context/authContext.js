@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { BASE_URL } from "../App";
 
 export const AuthContext = createContext();
 
@@ -9,25 +10,17 @@ export const AuthContexProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.post(
-      "http://localhost:8000/v1/api/auth/login",
-      inputs
-    );
+    const res = await axios.post(`${BASE_URL}/auth/login`, inputs);
     setCurrentUser(res?.data);
   };
 
-  const logout = async (inputs) => {
+  const logout = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:8000/v1/api/auth/logout",
-
-        null,
-        {
-          headers: {
-            Authorization: `Bearer ${currentUser?.token}`,
-          },
-        }
-      );
+      const res = await axios.post(`${BASE_URL}/auth/logout`, null, {
+        headers: {
+          Authorization: `Bearer ${currentUser?.token}`,
+        },
+      });
 
       if (res.status !== 200) {
         setCurrentUser(currentUser);

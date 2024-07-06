@@ -7,8 +7,12 @@ import Single from "./pages/Single";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss";
-import Test from "./pages/Test";
 import User from "./pages/User";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export const BASE_URL = "http://localhost:8000/v1/api";
 
 const Layout = () => {
   return (
@@ -30,10 +34,6 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/test",
-        element: <Test />,
-      },
-      {
         path: "/post/:id",
         element: <Single />,
       },
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element: <Write />,
       },
       {
-        path: "/profile",
+        path: "/profile/:id",
         element: <User />,
       },
     ],
@@ -62,6 +62,7 @@ function App() {
     <div className="app">
       <div className="container">
         <RouterProvider router={router} />
+        <ToastContainer />
       </div>
     </div>
   );

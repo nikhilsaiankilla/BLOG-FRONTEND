@@ -6,6 +6,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 import { AuthContext } from "../context/authContext";
 
+import { toast } from 'react-toastify';
+import { BASE_URL } from "../App";
+
 const Write = () => {
     const state = useLocation().state;
     const [title, setTitle] = useState(state?.title || "");
@@ -26,11 +29,11 @@ const Write = () => {
         }
 
         if (!title || !value || !cat || !file) {
-            window.alert("reqired all fields")
+            toast.info("required all fields")
         } else {
             try {
                 state
-                    ? await axios.put(`http://localhost:8000/v1/api/posts/update/${state.id}`, {
+                    ? await axios.put(`${BASE_URL}/posts/update/${state.id}`, {
                         title: title,
                         desc: value,
                         category: cat,
@@ -41,7 +44,7 @@ const Write = () => {
                             Authorization: `Bearer ${currentUser?.token}`,
                         }
                     })
-                    : await axios.post(`http://localhost:8000/v1/api/posts/upload`, {
+                    : await axios.post(`${BASE_URL}/posts/upload`, {
                         title: title,
                         desc: value,
                         category: cat,
@@ -53,8 +56,10 @@ const Write = () => {
                         }
                     });
                 navigate("/")
+                toast.success("post uploaded successfully")
             } catch (err) {
                 console.log(err);
+                toast.error("sonething went wrong please try again")
             }
         }
     };

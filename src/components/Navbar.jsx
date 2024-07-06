@@ -35,7 +35,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="user-info">
-                    <Link className="link" to="/profile">
+                    <Link className="link" to={`/profile/${currentUser?.id}`}>
                         <span className="username">{currentUser?.username}</span>
                     </Link>
                     {currentUser ? (

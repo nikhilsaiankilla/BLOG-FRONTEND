@@ -3,12 +3,17 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { toast } from 'react-toastify';
+
+import { BASE_URL } from '../App'
+
 const Register = () => {
     const [inputs, setInputs] = useState({
         username: "",
         email: "",
         password: "",
         image: "",
+        question: "",
     });
     const [err, setError] = useState(null);
 
@@ -21,10 +26,12 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8000/v1/api/auth/register", inputs);
+            await axios.post(`${BASE_URL}/auth/register`, inputs);
             navigate("/login");
+            toast.success("account registered successfully please login")
         } catch (err) {
             setError(err.response.data);
+            toast.error("sonething went wrong please try again")
         }
     };
 
@@ -51,6 +58,13 @@ const Register = () => {
                     type="password"
                     placeholder="password"
                     name="password"
+                    onChange={handleChange}
+                />
+                <input
+                    required
+                    type="text"
+                    placeholder="recover question"
+                    name="question"
                     onChange={handleChange}
                 />
                 <input type="text" name="image" id="image" placeholder="paste image url" onChange={handleChange} />

@@ -1,0 +1,124 @@
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .dialog {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .dialog-content {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .title {
+                font-size: 1.4rem;
+                text-transform: capitalize;
+                font-weight: 600;
+
+                text-align: center;
+            }
+
+            .delete-btns {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px;
+
+                gap: 20px;
+
+                button {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+
+                    padding: 7px 10px;
+
+                    border: none;
+                    outline: none;
+
+                    background-color: #b9e7e7;
+                    color: #333;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                gap: 10px;
+
+                input {
+                    padding: 7px 10px;
+                    font-size: 0.9rem;
+                    border: 1px solid #333;
+                    font-weight: 400;
+
+                    :focus {
+                        background: transparent;
+                    }
+                }
+
+                button {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+
+                    padding: 7px 10px;
+
+                    border: none;
+                    outline: none;
+
+                    background-color: #b9e7e7;
+                    color: #333;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .recover-btn {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+
+                    padding: 7px 10px;
+
+                    border: none;
+                    outline: none;
+
+                    background-color: red;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                color: red;
+            }
+        }
+
+    }
+}
