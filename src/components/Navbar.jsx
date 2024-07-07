@@ -18,8 +18,8 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="links">
-                    <Link className="link" to="/?category=cricket">
-                        <h6>CRICKET</h6>
+                    <Link className="link" to="/?category=sports">
+                        <h6>SPORTS</h6>
                     </Link>
                     <Link className="link" to="/?category=technology">
                         <h6>TECHNOLOGY</h6>

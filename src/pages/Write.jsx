@@ -29,7 +29,7 @@ const Write = () => {
         }
 
         if (!title || !value || !cat || !file) {
-            toast.info("required all fields")
+            toast.warning("required all fields")
         } else {
             try {
                 state
@@ -103,13 +103,13 @@ const Write = () => {
                     <div className="cat">
                         <input
                             type="radio"
-                            checked={cat === "cricket"}
+                            checked={cat === "sports"}
                             name="cat"
-                            value="art"
-                            id="art"
+                            value="sports"
+                            id="sports"
                             onChange={(e) => setCat(e.target.value)}
                         />
-                        <label htmlFor="art">cricket</label>
+                        <label htmlFor="art">Sports</label>
                     </div>
                     <div className="cat">
                         <input
