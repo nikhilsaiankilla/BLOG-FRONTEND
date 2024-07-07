@@ -12,7 +12,7 @@ import User from "./pages/User";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const BASE_URL = "http://localhost:8000/v1/api";
+export const BASE_URL = "https://blog-backend-vdcc.onrender.com/v1/api";
 
 const Layout = () => {
   return (
