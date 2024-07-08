@@ -44,9 +44,9 @@ const Home = () => {
                             </div>
                             <div className="content">
                                 <Link className="link" to={`/post/${post.id}`}>
-                                    <h1>{post.title}</h1>
+                                    <h1>{truncateText(post?.title, 70)}</h1>
                                 </Link>
-                                <p>{truncateText(getText(post?.desc), 200)}</p>
+                                <p>{truncateText(getText(post?.desc), 150)}</p>
                                 <button onClick={() => handleNavigation(`/post/${post.id}`)}>Read More</button>
                             </div>
                         </div>
